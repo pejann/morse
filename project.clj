@@ -7,7 +7,8 @@
                  [org.clojure/spec.alpha "0.2.176"]]
   :main ^:skip-aot morse.core
   :target-path "target/%s"
-  :profiles {:dev {:dependencies [[midje/midje "1.9.6"]]
+  :profiles {:dev {:dependencies [[midje/midje "1.9.6"]
+                                  [criterium "0.4.4"]]
                    :plugins [[lein-midje "3.2.1"]]}
              :uberjar {:aot :all}})
 

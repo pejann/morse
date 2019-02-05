@@ -21,6 +21,8 @@
   [letter]
   (helper/get-pairs-by-letter-and-fn alphabet/morse-dictionary letter first))
 
+(def get-pairs-by-letter-memo (memoize get-pairs-by-letter))  
+
 (defn letters-to-morse
   "Converts a list of letters into morse code, in case the letter is not recognized the letter itself is returned
 
@@ -31,7 +33,7 @@
   ..-. --- --- |"
   [letters]
   (->> letters
-    (map (fn [item] (last (get-pairs-by-letter item))) ,,,)
+    (map (fn [item] (last (get-pairs-by-letter-memo item))) ,,,)
     (str/join " " ,,,)))
 
 (defn words-to-morse
